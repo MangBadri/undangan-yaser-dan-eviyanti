@@ -115,8 +115,7 @@ const util = (() => {
     }, timeout);
   };
 
-
-  // Timer 1
+  // Waktu Pernikahan 1
   const timer = () => {
     let countDownDate = new Date(
       document
@@ -143,33 +142,33 @@ const util = (() => {
     }, 1000);
   };
 
-  
-// Timer 2
-  const timer = () => {
+  // Waktu Pernikahan 2
+  const timer2 = () => {
     let countDownDate = new Date(
       document
-        .getElementById("tampilan-waktu1")
-        .getAttribute("data-waktu1")
+        .getElementById("tampilan-waktu2")
+        .getAttribute("data-waktu2")
         .replace(" ", "T")
     ).getTime();
 
     setInterval(() => {
       let distance = Math.abs(countDownDate - new Date().getTime());
 
-      document.getElementById("hari").innerText = Math.floor(
+      document.getElementById("hari2").innerText = Math.floor(
         distance / (1000 * 60 * 60 * 24)
       );
-      document.getElementById("jam").innerText = Math.floor(
+      document.getElementById("jam2").innerText = Math.floor(
         (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
       );
-      document.getElementById("menit").innerText = Math.floor(
+      document.getElementById("menit2").innerText = Math.floor(
         (distance % (1000 * 60 * 60)) / (1000 * 60)
       );
-      document.getElementById("detik").innerText = Math.floor(
+      document.getElementById("detik2").innerText = Math.floor(
         (distance % (1000 * 60)) / 1000
       );
     }, 1000);
   };
+  // Akhir Tanggal Pernikahan
 
   const play = (btn) => {
     if (btn.getAttribute("data-status") !== "true") {
@@ -250,6 +249,7 @@ const util = (() => {
     opacity("welcome");
     document.getElementById("tombol-musik").style.display = "block";
     timer();
+    timer2();
 
     await confetti({
       origin: { y: 0.8 },
