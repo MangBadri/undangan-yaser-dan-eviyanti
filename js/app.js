@@ -118,7 +118,7 @@ const util = (() => {
   const timer = () => {
     let countDownDate = new Date(
       document
-        .getElementById("tampilan-waktu")
+        .getElementById("tampilan-waktu", "tampilan-waktu1")
         .getAttribute("data-waktu")
         .replace(" ", "T")
     ).getTime();
