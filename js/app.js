@@ -115,11 +115,41 @@ const util = (() => {
     }, timeout);
   };
 
+
+  // Timer 1
   const timer = () => {
     let countDownDate = new Date(
       document
-        .getElementById("tampilan-waktu", "tampilan-waktu1")
+        .getElementById("tampilan-waktu")
         .getAttribute("data-waktu")
+        .replace(" ", "T")
+    ).getTime();
+
+    setInterval(() => {
+      let distance = Math.abs(countDownDate - new Date().getTime());
+
+      document.getElementById("hari").innerText = Math.floor(
+        distance / (1000 * 60 * 60 * 24)
+      );
+      document.getElementById("jam").innerText = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      document.getElementById("menit").innerText = Math.floor(
+        (distance % (1000 * 60 * 60)) / (1000 * 60)
+      );
+      document.getElementById("detik").innerText = Math.floor(
+        (distance % (1000 * 60)) / 1000
+      );
+    }, 1000);
+  };
+
+  
+// Timer 2
+  const timer = () => {
+    let countDownDate = new Date(
+      document
+        .getElementById("tampilan-waktu1")
+        .getAttribute("data-waktu1")
         .replace(" ", "T")
     ).getTime();
 
